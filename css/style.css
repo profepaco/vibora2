@@ -1,0 +1,10 @@
+#gameContainer{
+    text-align: center;
+}
+#gameBoard{
+    border: 3px solid;
+}
+#scoreText{
+    font-family: "Roboto",  sans-serif;
+    font-size: 3rem;
+}
