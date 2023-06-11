@@ -1,7 +1,7 @@
 <?php
     include_once('conexion.php');
 
-    $sql = "SELECT id, nombre, puntos FROM jugadores";
+    $sql = "SELECT id, nombre, puntos FROM jugadores order by puntos desc";
     $data = $conn->query($sql);
 
     $listJugadores = array();
@@ -10,5 +10,6 @@
         while($row = $data->fetch_assoc()) {
             $listJugadores[] = ['id'=>$row['id'], 'nombre'=>$row['nombre'],'puntos'=>$row['puntos']];
         }
-    } 
+    }
+    $conn->close();
 ?>

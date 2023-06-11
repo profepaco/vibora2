@@ -3,6 +3,13 @@ const ctx = gameBoard.getContext("2d");
 const scoreText = document.querySelector("#scoreText");
 const resetBtn = document.querySelector("#resetBtn");
 const startBtn = document.querySelector("#startBtn");
+//const modalForm = document.getElementById('#modalForm');
+const textPuntos = document.getElementById('#puntos');
+
+const modalForm = new bootstrap.Modal('#modalForm', {
+    keyboard: false
+  })
+
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
 const boardBackground = "white";
@@ -48,6 +55,7 @@ function nextTick(){
         }, velocity);
     }
     else{
+        
         displayGameOver();
     }
 };
@@ -153,6 +161,8 @@ function displayGameOver(){
     ctx.textAlign = "center";
     ctx.fillText("GAME OVER!", gameWidth / 2, gameHeight / 2);
     running = false;
+    modalForm.show();
+    document.querySelector('#puntos').value = score;
 };
 function resetGame(){
     score = 0;
